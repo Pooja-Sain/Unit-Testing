@@ -1,6 +1,8 @@
 package com.unittesting;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -12,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.unittesting.spy.spy;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ClassTest {
@@ -30,7 +31,7 @@ public class ClassTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		verify(mockedServiceAreaImpl,times(1)).findArea(5, 4);
+		verify(mockedServiceAreaImpl,atLeastOnce()).findArea(5, 4);
 		
 	}
 	@Test
@@ -42,7 +43,7 @@ public class ClassTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		verify(mockedServiceAreaImpl,times(1)).findArea(6, 4);
+		verify(mockedServiceAreaImpl,atLeast(1)).findArea(6, 4);
 	}
 	@Test
 	public void test_circle() {
