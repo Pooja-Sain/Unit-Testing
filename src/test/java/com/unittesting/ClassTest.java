@@ -9,7 +9,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import com.unittesting.spy.spy;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ClassTest {
@@ -64,4 +67,15 @@ public class ClassTest {
 		}
 		verify(mockedServiceAreaImpl,times(1)).circle(5);
 		}
+	
+	@Test
+	public void test_circle3() {
+		Class circleSpy =Mockito.spy(Class.class);
+		try {
+			assertEquals(78,circleSpy.Circle(5));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	}
